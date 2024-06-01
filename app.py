@@ -115,7 +115,7 @@ if st.button("生成语音"):
                 "laugh": laugh,
                 "break": break_,
                 "source": source,
-                "local_path": local_path
+                "local_path": chattts_dir
             }
         })
 
