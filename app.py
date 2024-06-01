@@ -2,6 +2,7 @@ import streamlit as st
 import ChatTTS
 import torchaudio
 import torch
+import os
 import numpy as np
 
 # Initialize ChatTTS
@@ -13,7 +14,7 @@ torch.set_float32_matmul_precision('high')
 
 # Get the directory of the running script
 current_dir = os.path.dirname(os.path.abspath(__file__))
-chattts_dir = os.path.join(current_dir, 'chatTTS')
+chattts_dir = os.path.join(current_dir, 'local')
 files_dir = os.path.join(chattts_dir, 'files')
 
 # Ensure the files directory exists
@@ -39,7 +40,7 @@ break_ = st.sidebar.slider("Break (break_)", 0, 7, 6)
 
 st.sidebar.header("模型设置")
 source = st.sidebar.text_input("Source", value="local")
-local_path = st.sidebar.text_input("Local Path", value=r"C:\model")
+st.sidebar.markdown(f"Local Path: {chattts_dir}")
 
 # History of generated audios
 if 'history' not in st.session_state:
